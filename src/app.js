@@ -2,8 +2,6 @@ const express = require("express");
 const app = express();
 const pastes = require("./data/pastes-data");
 
-// TODO: Follow instructions in the checkpoint to implement ths API.
-//Routes
 app.use("/pastes/:pasteId", (req, res, next) => {
   const { pasteId } = req.params;
   const foundPaste = pastes.find((paste) => paste.id === Number(pasteId));
@@ -11,12 +9,12 @@ app.use("/pastes/:pasteId", (req, res, next) => {
   if (foundPaste) {
     res.json({ data: foundPaste });
   } else {
-    next(`Paste id not found: ${pasteId}`);
+    next(`Paste id not found: ${PasteId}`);
   }
 });
 
-app.use("/pastes", (req, res,) => {
-  res.json({data: pastes});
+app.use("/pastes", (req, res) => {
+  res.json({ data: pastes });
 });
 
 // Not found handler
